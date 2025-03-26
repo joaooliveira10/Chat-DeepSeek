@@ -1,10 +1,10 @@
-# ProjectName 🚀
+# Chat-DeepSeek 🚀
 
 Um sistema completo para gerenciamento de tarefas e produtividade, desenvolvido para ajudar indivíduos e equipes a organizar seu trabalho de forma eficiente e intuitiva.
 
 ## 📋 Tabela de Conteúdos
 
-- [ProjectName 🚀](#projectname-)
+- [Chat-DeepSeek 🚀](#chat-deepseek-)
   - [📋 Tabela de Conteúdos](#-tabela-de-conteúdos)
   - [🔍 Visão Geral](#-visão-geral)
   - [✨ Funcionalidades](#-funcionalidades)
@@ -45,8 +45,8 @@ ProjectName é uma solução robusta para gerenciamento de tarefas que combina i
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/joaooliveira10/ChatDeepSeek.git
-cd ChatDeepSeek
+git clone https://github.com/joaooliveira10/Chat-DeepSeek.git
+cd Chat-DeepSeek
 ```
 
 2. Instale as dependências:
