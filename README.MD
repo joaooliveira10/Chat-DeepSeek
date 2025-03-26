@@ -1,46 +1,29 @@
-# Chat-DeepSeek 🚀
+# Chat DeepSeek 🤖💬
 
-Um sistema completo para gerenciamento de tarefas e produtividade, desenvolvido para ajudar indivíduos e equipes a organizar seu trabalho de forma eficiente e intuitiva.
+Uma interface de chat simples para interagir com o modelo DeepSeek, usando Streamlit e LangChain.
 
-## 📋 Tabela de Conteúdos
+## 📋 Visão Geral
 
-- [Chat-DeepSeek 🚀](#chat-deepseek-)
-  - [📋 Tabela de Conteúdos](#-tabela-de-conteúdos)
-  - [🔍 Visão Geral](#-visão-geral)
-  - [✨ Funcionalidades](#-funcionalidades)
-  - [🔧 Instalação](#-instalação)
-    - [Pré-requisitos](#pré-requisitos)
-    - [Passos para instalação](#passos-para-instalação)
-  - [🚀 Uso](#-uso)
-    - [Exemplos básicos](#exemplos-básicos)
-    - [Casos de uso avançados](#casos-de-uso-avançados)
-      - [Criação de uma nova tarefa via API ⚙️](#criação-de-uma-nova-tarefa-via-api-️)
-      - [Exportação de relatórios 📊](#exportação-de-relatórios-)
-  - [⚙️ Configuração e Personalização](#️-configuração-e-personalização)
+Chat DeepSeek é uma aplicação que permite conversar com o modelo DeepSeek através de uma interface web intuitiva. A aplicação utiliza:
 
-## 🔍 Visão Geral
-
-ProjectName é uma solução robusta para gerenciamento de tarefas que combina interface amigável com recursos poderosos. Ideal para profissionais que precisam organizar seu fluxo de trabalho, equipes que necessitam coordenar esforços, ou qualquer pessoa que deseje aumentar sua produtividade.
+- **Streamlit** para a interface de usuário
+- **LangChain** para integração com o Ollama
+- **Modelo DeepSeek** executando localmente via Ollama
 
 ## ✨ Funcionalidades
 
-- Criação e gerenciamento de tarefas com prioridades
-- Sistema de lembretes e notificações
-- Categorização por projetos e tags
-- Relatórios de produtividade
-- Integração com calendários
-- Compartilhamento de tarefas e colaboração em tempo real
-- Aplicativo móvel sincronizado
+- Interface de chat amigável
+- Histórico de conversas durante a sessão
+- Processamento local dos dados (privacidade garantida)
+- Respostas em tempo real
 
-## 🔧 Instalação
+## 🛠️ Pré-requisitos
 
-### Pré-requisitos
+- Python 3.8 ou superior
+- Ollama instalado localmente
+- Modelo DeepSeek disponível no Ollama
 
-- Node.js (v14.0.0 ou superior)
-- MongoDB (v4.4 ou superior)
-- NPM (v6.0.0 ou superior)
-
-### Passos para instalação
+## 📦 Instalação
 
 1. Clone o repositório:
 
@@ -52,78 +35,46 @@ cd Chat-DeepSeek
 2. Instale as dependências:
 
 ```bash
-npm install
+pip install -r requirements.txt
 ```
 
-3. Configure as variáveis de ambiente:
+3. Certifique-se que o Ollama está em execução e que o modelo DeepSeek está disponível:
 
 ```bash
-cp .env.example .env
+ollama pull deepseek-r1:1.5b
 ```
 
-Edite o arquivo `.env` com suas configurações
+## 🚀 Como Usar
 
-4. Inicie o servidor de desenvolvimento:
+1. Inicie o Ollama em um terminal:
 
 ```bash
-npm run dev
+ollama serve
 ```
 
-## 🚀 Uso
-
-### Exemplos básicos
-
-Para iniciar o servidor em modo de produção:
+2. Em outro terminal, execute a aplicação Streamlit:
 
 ```bash
-npm start
+streamlit run chat_deepseek.py
 ```
 
-Para acessar o painel administrativo, navegue até `http://localhost:3000/admin` e faça login com as credenciais padrão:
+3. Acesse a interface web através do navegador (geralmente http://localhost:8501)
 
-- Usuário: `admin@example.com`
-- Senha: `admin123`
+4. Digite suas mensagens no campo de entrada na parte inferior da tela e pressione Enter para enviar.
 
-### Casos de uso avançados
+## 🧩 Estrutura do Projeto
 
-#### Criação de uma nova tarefa via API ⚙️
-
-```bash
-curl -X POST http://localhost:3000/api/tasks \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer YOUR_TOKEN" \
-    -d '{"title": "Nova tarefa", "priority": "high", "due_date": "2023-12-31"}'
+```
+Chat DeepSeek/
+├── chat_deepseek.py    # Arquivo principal da aplicação
+├── requirements.txt    # Dependências do projeto
+└── README.MD           # Documentação do projeto
 ```
 
-#### Exportação de relatórios 📊
+## 🔧 Personalização
 
-Para gerar um relatório de produtividade mensal no formato PDF:
+Para alterar o modelo utilizado, modifique a seguinte linha no arquivo `chat_deepseek.py`:
 
-```bash
-npm run report:generate -- --month=12 --year=2023 --format=pdf
-```
-
-## ⚙️ Configuração e Personalização
-
-O ProjectName oferece várias opções de customização através do arquivo `config.js`:
-
-```javascript
-// config.js
-module.exports = {
-  theme: {
-    primary: "#3498db",
-    secondary: "#2ecc71",
-    dark: "#34495e",
-  },
-  notifications: {
-    email: true,
-    push: true,
-    frequency: "daily", // 'daily', 'hourly', 'realtime'
-  },
-  integration: {
-    googleCalendar: true,
-    microsoftOutlook: false,
-    slack: true,
-  },
-};
+```python
+llm = ChatOllama(model="seu-modelo-preferido", base_url='http://localhost:11434')
 ```
